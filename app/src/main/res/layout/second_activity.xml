@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:padding="5dp">
+
+    <!-- Profile Section -->
+
+
+        <!-- Profile Image -->
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profileIV"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Profile"
+            android:layout_marginStart="10dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/person"
+            style="@style/circleImage"
+            app:layout_constraintTop_toTopOf="@id/profileName"
+            app:layout_constraintBottom_toBottomOf="@id/profilePoints"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+
+            <TextView
+                android:id="@+id/profileName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hello, Nageh!"
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="10dp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@id/profileIV"/>
+
+            <TextView
+                android:id="@+id/profilePoints"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+1600 Points"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/colorAccent"
+                app:layout_constraintTop_toBottomOf="@id/profileName"
+                app:layout_constraintStart_toStartOf="@id/profileName"/>
+
+        <!-- Notification Icon -->
+        <ImageView
+            android:id="@+id/notification_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Notification"
+            android:layout_marginEnd="15dp"
+            android:src="@drawable/ic_notifications"
+            app:layout_constraintTop_toTopOf="@id/profileIV"
+            app:layout_constraintBottom_toBottomOf="@id/profileIV"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/personsRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="horizontal"
+        tools:listitem="@layout/person_item"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profilePoints"/>
+    <!-- Upcoming Courses Section -->
+    <TextView
+        android:id="@+id/upcomingCoursesTitle1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Upcoming"
+        android:layout_marginStart="5dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/personsRecyclerView" />
+    <TextView
+        android:id="@+id/upcomingCoursesTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="course of this week"
+        android:textSize="18sp"
+        android:layout_marginStart="5dp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toEndOf="@id/upcomingCoursesTitle1"
+        app:layout_constraintTop_toTopOf="@id/upcomingCoursesTitle1" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/courseCategoryRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="horizontal"
+        tools:listitem="@layout/course_category_item"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/upcomingCoursesTitle"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
+

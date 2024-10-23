@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="text_input_white_border">#80B4C5D2</color>
+    <color name="text_input_white_border_focused">#B4C5D2</color>
+    <color name="text_input_white_background">#FFFFFF</color>
+    <color name="text_input_warn_border">#FF5858</color>
+    <color name="text_input_white_border_disabled">#DADADA</color>
+    <color name="text_input_white_background_disabled">#DADADA</color>
+
+    <declare-styleable name="TextInputLayout">
+        <attr name="textInputLayoutNormalSelectorDrawable" format="reference" />
+        <attr name="textInputLayoutErrorDrawable" format="reference" />
+    </declare-styleable>
+
+    <style name="TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="materialThemeOverlay">@style/CustomTextInputLayoutThemeOverlay</item>
+        <item name="shapeAppearanceOverlay">@style/CustomTextInputLayoutShapeAppearanceOverlay
+        </item>
+        <item name="textInputLayoutNormalSelectorDrawable">@drawable/text_input_white_background
+        </item>
+        <item name="textInputLayoutErrorDrawable">@drawable/text_input_white_background_error</item>
+        <item name="boxCollapsedPaddingTop">5dp</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="hintEnabled">true</item>
+    </style>
+
+    <style name="CustomTextInputLayoutThemeOverlay" parent="ThemeOverlay.MaterialComponents.TextInputEditText.OutlinedBox">
+        <item name="editTextStyle">@style/CustomTextInputLayoutEditTextStyle</item>
+    </style>
+
+    <style name="CustomTextInputLayoutEditTextStyle" parent="Widget.MaterialComponents.TextInputEditText.OutlinedBox">
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+    </style>
+
+    <style name="CustomTextInputLayoutShapeAppearanceOverlay" parent="">
+        <item name="cornerSizeBottomLeft">5dp</item>
+        <item name="cornerSizeBottomRight">5dp</item>
+    </style>
+</resources>
