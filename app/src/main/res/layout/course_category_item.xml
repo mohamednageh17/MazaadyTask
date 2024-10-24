@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         tools:text="All"
         android:textAlignment="center"
-        android:paddingHorizontal="20dp"
+        android:paddingHorizontal="10dp"
         android:paddingVertical="8dp"
         android:textColor="@color/white"
         android:background="@drawable/selected_category_bg"

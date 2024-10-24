@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">MazaadyTask</string>
     <string name="search">Search..</string>
+    <string name="discover">Discover</string>
+    <string name="messages">Messages</string>
+    <string name="profile">Profile</string>
+    <string name="home">Home</string>
 </resources>

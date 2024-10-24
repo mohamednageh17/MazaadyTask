@@ -7,6 +7,17 @@
     android:layout_height="match_parent"
     tools:context=".ui.main_activity.MainActivity">
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
     <com.example.mazaadytask.utilis.TextInputLayout
         android:id="@+id/inputCategory"
         style="@style/Theme.Mazaady.TextInputLayout.ExposedDropdownMenu"
@@ -78,18 +89,40 @@
     android:orientation="vertical"
     app:layout_constraintStart_toStartOf="@id/inputSubCategory"
     app:layout_constraintTop_toBottomOf="@id/inputSubCategory"
-    app:layout_constraintBottom_toTopOf="@id/submitBtn"
+    app:layout_constraintBottom_toTopOf="@id/btnArea"
     app:layout_constraintEnd_toEndOf="@id/inputSubCategory"/>
 
-    <Button
-        android:id="@+id/submitBtn"
-        android:layout_width="wrap_content"
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/btnArea"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minWidth="200dp"
-        android:text="Submit"
-        android:layout_marginBottom="5dp"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_marginHorizontal="10dp"
+        android:padding="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/recyclerView"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/submitBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Submit"
+            android:layout_marginBottom="5dp" />
+
+        <Button
+            android:id="@+id/goToSecondScreenBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Second Screen"
+            android:layout_marginBottom="5dp" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

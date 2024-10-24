@@ -1,5 +1,6 @@
 package com.example.mazaadytask.ui.main_activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
@@ -7,6 +8,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import com.example.domain.remote.response.category.Categories
 import com.example.domain.remote.response.category.Children
@@ -14,8 +16,11 @@ import com.example.mazaadytask.R
 import com.example.mazaadytask.base.MainViewState
 import com.example.mazaadytask.databinding.ActivityMainBinding
 import com.example.mazaadytask.ui.main_activity.adapters.PropertiesAdapter
+import com.example.mazaadytask.ui.second_activity.SecondActivity
+import com.example.mazaadytask.utilis.gone
 import com.example.mazaadytask.utilis.setAsSpinner
 import com.example.mazaadytask.utilis.showTableDialog
+import com.example.mazaadytask.utilis.visible
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -64,13 +69,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupController(){
-        binding.submitBtn.setOnClickListener{
-            showTableDialog(adapter.collectSelectedValues())
-            adapter.collectSelectedValues().forEach {
-                Log.d("nageh",  it.first+"->"+it.second)
+        with(binding){
+            submitBtn.setOnClickListener{
+                showTableDialog(adapter.collectSelectedValues())
+                adapter.collectSelectedValues().forEach {
+                    Log.d("nageh",  it.first+"->"+it.second)
+                }
+            }
+
+            goToSecondScreenBtn.setOnClickListener{
+                startActivity(Intent(this@MainActivity, SecondActivity::class.java))
             }
         }
     }
+
     private fun initCategories(data: List<Categories>) {
         binding.inputCategory.setAsSpinner(
             binding.categorySpinner,
@@ -105,10 +117,11 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     MainViewState.Loading -> {
-
+                        binding.progressBar.visible()
                     }
 
                     is MainViewState.Success -> {
+                        binding.progressBar.gone()
                         state.categories?.let { categories ->
                             initCategories(categories)
                         }
@@ -116,11 +129,7 @@ class MainActivity : AppCompatActivity() {
                             adapter.setData(properties)
                         }
                         state.optionsChild?.let { optionsChild ->
-                            // Handle options child data
-                            Log.d("nageh", "collect children:$optionsChild ")
-                            Log.d("nageh", "selectedProperty:${ viewModel.selectedProperty} ")
                             viewModel.selectedProperty?.let {
-                                Log.d("nageh", "update adapter: ")
                                 adapter.updateChildOptions(it,optionsChild)
                             }
                         }
@@ -128,6 +137,7 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     is MainViewState.Error -> {
+                        binding.progressBar.gone()
                         Log.e(TAG, "error:${state.exception.message} ")
                     }
                 }
