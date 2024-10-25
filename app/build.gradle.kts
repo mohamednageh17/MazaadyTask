@@ -120,5 +120,7 @@ dependencies {
     // If you're using Mockito instead of Mockk
     testImplementation ("org.mockito:mockito-core:3.9.0")
     testImplementation ("junit:junit:4.13.2")
+    implementation ("com.google.android.material:material:1.9.0")  // or the latest version
+
 
 }

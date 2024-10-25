@@ -1,6 +1,7 @@
 package com.example.mazaadytask.ui.second_activity
 
 import android.content.Context
+import com.example.domain.model.Course
 import com.example.domain.model.CourseCategory
 import com.example.domain.model.Person
 import com.example.mazaadytask.R
@@ -21,6 +22,15 @@ object Data {
         var item: Person
         for (i in 1..10) {
             item = Person(name = "Person $i", image =context.getDrawable(R.drawable.person2) )
+            data.add(item)
+        }
+        return data
+    }
+    fun initCoursesData(): MutableList<Course> {
+        val data = mutableListOf<Course>()
+        var item: Course
+        for (i in 1..10) {
+            item = Course()
             data.add(item)
         }
         return data

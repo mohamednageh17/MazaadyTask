@@ -1,6 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardCornerRadius="8dp"
+    app:cardUseCompatPadding="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/courseImage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/course_img2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CurvedCorners" />
+
+        <TextView
+            android:id="@+id/freeBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/free_badge_bg"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:text="Free e-book"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/courseTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Step design sprint for beginner"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="100dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/freeBadge"
+            app:layout_constraintTop_toBottomOf="@+id/freeBadge" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/courseTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:drawableStart="@drawable/ic_stopwatch"
+            android:text="5h 21m"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toStartOf="@id/freeBadge"
+            app:layout_constraintTop_toBottomOf="@+id/courseTitle" />
+
+        <TextView
+            android:id="@+id/courseLessons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/green_bg"
+            android:paddingHorizontal="5dp"
+            android:paddingVertical="2dp"
+            android:layout_marginTop="20dp"
+            android:text="6 lessons"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@id/freeBadge"
+            app:layout_constraintTop_toBottomOf="@+id/courseTime" />
+
+        <TextView
+            android:id="@+id/courseTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/blue_bg"
+            android:paddingHorizontal="5dp"
+            android:paddingVertical="2dp"
+            android:text="UI/UX"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/courseLessons"
+            app:layout_constraintStart_toEndOf="@id/courseLessons"
+            app:layout_constraintTop_toTopOf="@id/courseLessons" />
+
+        <TextView
+            android:id="@+id/freeTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/purple_bg"
+            android:paddingHorizontal="5dp"
+            android:paddingVertical="2dp"
+            android:text="Free"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@id/courseTag"
+            app:layout_constraintTop_toTopOf="@id/courseLessons" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/authorImage"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/person2"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/freeBadge"
+            app:layout_constraintTop_toBottomOf="@+id/courseLessons" />
+
+        <TextView
+            android:id="@+id/authorName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Laurel Seilha"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@id/authorImage"
+            app:layout_constraintTop_toTopOf="@id/authorImage" />
+
+        <TextView
+            android:id="@+id/authorRole"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Product Designer"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@id/authorName"
+            app:layout_constraintTop_toBottomOf="@id/authorName" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

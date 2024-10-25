@@ -10,4 +10,7 @@
     <color name="colorAccent">#FCD034</color>
     <color name="red">#D34B41</color>
     <color name="light_red">#40EC5F5F</color>
+    <color name="light_green">#4DC9D1</color>
+    <color name="blue">#0082CD</color>
+    <color name="purple">#8D5EF2</color>
 </resources>
